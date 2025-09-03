@@ -28,6 +28,10 @@ config("vulkan_memory_allocator_config") {
     "VMA_DYNAMIC_VULKAN_FUNCTIONS=0",
     "VMA_STATIC_VULKAN_FUNCTIONS=0",
   ]
+
+  if (is_linux) {
+    defines += [ "VMA_IMPLEMENTATION" ]
+  }
 }
 
 source_set("vulkan_memory_allocator") {
